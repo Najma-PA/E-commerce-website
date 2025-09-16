@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KidzShop - Online Kids Wear</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></noscript>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
+
+  <style>
+    /* Critical CSS for above-the-fold content */
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .navbar-brand { font-weight: bold;font-size:xx-large; color: #a7292e !important; }
+    .carousel-item { transition: transform 0.6s ease-in-out; }
+    .card { overflow: hidden; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card-img-top { object-fit: cover; width: 100%; height: 305px; }
+    
+    /* Prevent layout shifts with aspect ratio boxes */
+    .carousel-item img { 
+      aspect-ratio: 3/1;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    /* Optimized button styles */
+    .btn-primary { background: #4a6cfa; border-color: #4a6cfa; }
+    .btn-primary:hover { background: #3a5cea; border-color: #3a5cea; }
+    
+    /* Loading animation for images */
+    .card-img-top {
+      background: linear-gradient(110deg, #f5f5f5 8%, #e0e0e0 18%, #f5f5f5 33%);
+      background-size: 200% 100%;
+      animation: 1.5s loading linear infinite;
+    }
+    
+    @keyframes loading {
+      to { background-position-x: -200%; }
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-item img { aspect-ratio: 2/1; }
+      .navbar-nav { margin-top: 1rem; }
+      .d-flex { margin: 0.5rem 0; }
+    }
+  </style>
+  
+  <!-- Defer non-critical CSS -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></noscript>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary" href="#">KidzShop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="d-flex ms-auto me-3">
+        <input class="form-control me-2" type="search" placeholder="Search kids wear..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Boys</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Girls</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">New Arrivals</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sale</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cart"></i> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <!-- Optimized image with explicit dimensions -->
+      <img 
+        src="https://www.shutterstock.com/image-photo/adorable-children-on-different-color-260nw-2477271221.jpg" 
+        class="d-block w-100" 
+        alt="Sale Banner"
+        width="1200" 
+        height="400"
+        loading="eager"
+      >
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h2>New Collections</h2>
+        <p>Check out our latest arrivals</p>
+      </div>
+      
+    </div>
+    <div class="carousel-item">
+      <img 
+        src="https://cdn.vectorstock.com/i/500p/23/58/kids-clothes-sale-banner-vector-43412358.jpg" 
+        class="d-block w-100" 
+        alt="Discount Banner"
+        width="1200" 
+        height="400"
+        loading="eager"
+      >
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h2>Summer Sale</h2>
+        <p>Up to 70% off on all kids wear</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img 
+        src="https://amazonleftover.com/wp-content/uploads/2023/06/Kids-Collection.jpg" 
+        class="d-block w-100" 
+        alt="New Arrivals Banner"
+        width="1200" 
+        height="400"
+        loading="eager"
+      >
+     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h2>Special Offers</h2>
+        <p>Limited time deals for your little ones</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Categories -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Shop by Category</h2>
+  <div class="row text-center">
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://blog.g3fashion.com/wp-content/uploads/2019/06/47cdcaadb9795e4f38c8b301fc5bce02-e1593673517920.jpg" 
+          class="card-img-top" 
+          alt="Boys Wear"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Boys</h5>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/29524964/2024/5/14/28f21d13-9753-4337-b032-e41403e6eb3e1715663385068BAESDFloralFlutterSleeveNetFitFlareDress1.jpg" 
+          class="card-img-top" 
+          alt="Girls Wear"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Girls</h5>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTdxNPbPDlx1Ulk_XiVJhjB20ImJifodB-Lb6f1bvFdLsPDCjzdzI3BKBmL0KQDrdHMywIrNhsikAkjS-6s8GndFNI1I-X4W9Dc-SpQdXuBHxh697igt_TupRM" 
+          class="card-img-top" 
+          alt="Infants"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Infants</h5>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQvBDcSaPnv7-OUEaCvB-INa_h008hCbxx5d2BD7eV10LAmx6XGsOwIJDkH9XmZN32VKmNBoHwk_Nq1rMDTK9n31ULqVhBfxMeN2V7vcemHx4ntpP0uXkyjVA" 
+          class="card-img-top" 
+          alt="Accessories"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Accessories</h5>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Featured Products</h2>
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS5eSkbbkLXe6DfYxDNTMr7rzY_usHB_UKEdjkjvUMn2M6IFK1QZxAe_1i9uOt5jXjIozyFe9U13BZOymUQYecFJHv7LJeqvcZp3Opd9zw9YkZjm8oic3k4" 
+          class="card-img-top" 
+          alt="Product 1"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Cute T-Shirt</h5>
+          <p class="text-muted">₹499 <span class="text-danger"><small>20% off</small></span></p>
+          <a href="#" class="btn btn-success w-100"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://i.cubmcpaws.com/fit-in/dropbox_2044220624030650.jpg" 
+          class="card-img-top" 
+          alt="Product 2"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Summer Dress</h5>
+          <p class="text-muted">₹799 <span class="text-danger"><small>15% off</small></span></p>
+          <a href="#" class="btn btn-success w-100"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTCxuta9H1cZCiP5PNqbtO4Cfij8k3Bj2TRVxj_VBXpzA51_o6FJzASkZEPkJ_NPwIGY2btQAun0F-yKSnmZIgCtbYir1PJm1cJcRhjxtQ" 
+          class="card-img-top" 
+          alt="Product 3"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Kids Jeans</h5>
+          <p class="text-muted">₹899 <span class="text-danger"><small>10% off</small></span></p>
+          <a href="#" class="btn btn-success w-100"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm">
+        <img 
+          src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR-iRmw86alL8hzjuGPNXLRCMWu8p8Q5kyO4UK9mO438bd9N9L6l_CjGI8XQKeoypv6_YTawhw6UQAY4PZP-DX0yxYpqRFxgX7qBmH4SK_xWT1LtqtSBvPH" 
+          class="card-img-top" 
+          alt="Product 4"
+          loading="lazy"
+          width="300"
+          height="305"
+        >
+        <div class="card-body">
+          <h5 class="card-title">Cute Cap</h5>
+          <p class="text-muted">₹199 <span class="text-danger"><small>5% off</small></span></p>
+          <a href="#" class="btn btn-success w-100"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p class="text-muted">Get updates on new arrivals, special offers, and discounts</p>
+        <form class="row g-2 justify-content-center">
+          <div class="col-auto">
+            <input type="email" class="form-control" placeholder="Your email address">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5>KidzShop</h5>
+        <p class="text-muted">The best online destination for kids fashion and accessories.</p>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h5>Shop</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-none text-light">Boys</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Girls</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Infants</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h5>Company</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-none text-light">About Us</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Contact</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Careers</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5>Stay Connected</h5>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light fs-4"><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; 2025 KidzShop. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Defer Bootstrap JS and load it asynchronously -->
+<script>
+  // Load Bootstrap asynchronously
+  function loadBootstrap() {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+  
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(loadBootstrap);
+  } else {
+    setTimeout(loadBootstrap, 500);
+  }
+  
+  // Add a simple image lazy loading implementation for older browsers
+  document.addEventListener('DOMContentLoaded', function() {
+    if ('loading' in HTMLImageElement.prototype) {
+      // Browser supports native lazy loading
+      return;
+    }
+    
+    const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+    
+    if ('IntersectionObserver' in window) {
+      const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove('lazy');
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+      
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers without Intersection Observer
+      lazyImages.forEach(function(lazyImage) {
+        lazyImage.src = lazyImage.dataset.src;
+      });
+    }
+  });
+</script>
+</body>
+</html>
